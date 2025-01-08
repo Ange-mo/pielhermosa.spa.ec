@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios</title>
+    <title>Servicios | Piel Hermosa Spa</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #eac6b8;
+            font-family: 'Georgia', serif;
+            background-color: #f8f4e4;
             color: #5a3827;
             margin: 0;
             padding: 0;
@@ -20,6 +20,7 @@
         }
         h1 {
             margin-bottom: 30px;
+            color: #f0a1b2;
         }
         .service-list {
             display: flex;
@@ -27,44 +28,66 @@
             flex-wrap: wrap;
         }
         .service {
-            background-color: #f8f4e4;
+            background-color: #fff;
             border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 250px;
             margin: 20px;
             padding: 20px;
             text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .service:hover {
-            transform: scale(1.05);
         }
         .service img {
             width: 100%;
-            height: auto;
-            border-radius: 50%;
+            border-radius: 5px;
         }
         .service h3 {
+            color: #e05297;
             margin: 15px 0 5px;
+        }
+        .service p {
+            font-size: 14px;
+            color: #5a3827;
+        }
+        .more-info {
+            background-color: #e05297;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .more-info:hover {
+            background-color: #c04482;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Servicios</h1>
+        <h1>Servicios de Piel Hermosa Spa</h1>
         <div class="service-list">
-            <!-- Redirección a los catálogos de cada servicio -->
-            <div class="service" onclick="window.location.href='tratamientos capilares.html'">
-                <img src="https://via.placeholder.com/250" alt="Tratamiento Capilar">
-                <h3>Tratamiento Capilar</h3>
+            <!-- Servicio Cuidado de la Piel -->
+            <div class="service">
+                <img src="https://via.placeholder.com/250x200" alt="Cuidado de la Piel">
+                <h3>Cuidado de la Piel</h3>
+                <p>Tratamientos faciales para una piel radiante.</p>
+                <a href="cuidado de la piel.html"><button class="more-info">Más Información</button></a>
             </div>
-            <div class="service" onclick="window.location.href='cuidado de la piel.html'">
-                <img src="https://via.placeholder.com/250" alt="Cuidado de la piel">
-                <h3>Cuidado de la piel</h3>
+
+            <!-- Servicio Tratamientos Capilares -->
+            <div class="service">
+                <img src="https://via.placeholder.com/250x200" alt="Tratamientos Capilares">
+                <h3>Tratamientos Capilares</h3>
+                <p>Recupera la salud de tu cabello con nuestros tratamientos.</p>
+                <a href="tratamiento capilar.html"><button class="more-info">Más Información</button></a>
             </div>
-            <div class="service" onclick="window.location.href='diseño de mirada.html'">
-                <img src="https://via.placeholder.com/250" alt="Diseño de Mirada">
+
+            <!-- Servicio Diseño de Mirada -->
+            <div class="service">
+                <img src="https://via.placeholder.com/250x200" alt="Diseño de Mirada">
                 <h3>Diseño de Mirada</h3>
+                <p>El diseño perfecto para tus cejas y pestañas.</p>
+                <a href="diseño mirada.html"><button class="more-info">Más Información</button></a>
             </div>
         </div>
     </div>
