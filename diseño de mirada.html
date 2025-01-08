@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Diseño de Mirada</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f8efe6; color: #5a3827; text-align: center; padding: 20px; }
+        h1 { margin-bottom: 30px; }
+        .product-list { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .product { width: 250px; margin: 20px; text-align: center; background-color: #fff; padding: 20px; border-radius: 10px; }
+        .product img { width: 100%; height: auto; border-radius: 10px; }
+        .product h3 { margin: 10px 0; }
+        .add-to-cart { background-color: #e05297; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .add-to-cart:hover { background-color: #c04482; }
+        .cart-btn { display: block; margin: 30px auto; padding: 10px 20px; background-color: #5a3827; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .cart-btn:hover { background-color: #3e261b; }
+    </style>
+</head>
+<body>
+    <h1>Catálogo Diseño de Mirada</h1>
+    <div class="product-list" id="product-list">
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Delineado de Ojos">
+            <h3>Delineado de Ojos</h3>
+            <p>Incluye lavado y estilo.</p>
+            <button class="add-to-cart" onclick="addToCart('Delineado de Ojos')">Añadir al carrito</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Extensiones de Pestañas">
+            <h3>Extensiones de Pestañas</h3>
+            <p>Variedad de colores profesionales.</p>
+            <button class="add-to-cart" onclick="addToCart('Extensiones de Pestañas')">Añadir al carrito</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250" alt="Microblading de Cejas">
+            <h3>Microblading de Cejas</h3>
+            <p>Fortalece y nutre el cabello.</p>
+            <button class="add-to-cart" onclick="addToCart('Microblading de Cejas')">Añadir al carrito</button>
+        </div>
+    </div>
+    <a href="#" id="cart-btn" class="cart-btn" style="display:none;" onclick="redirectToWhatsApp()">Finalizar compra</a>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product) {
+            cart.push(product);
+            document.getElementById('cart-btn').style.display = 'block';
+            alert(product + " añadido al carrito");
+        }
+
+        function redirectToWhatsApp() {
+            if (cart.length === 0) {
+                alert("El carrito está vacío");
+                return;
+            }
+            let message = "Hola, quiero comprar: " + cart.join(", ");
+            let whatsappUrl = "https://wa.me/0983913566?text=" + encodeURIComponent(message);
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
+</body>
+</html>

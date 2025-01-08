@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f4e4;
+            color: #5a3827;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            color: #e05297;
+            margin: 15px 0 5px;
+        }
+        .product p {
+            font-size: 14px;
+            color: #5a3827;
+        }
+        .add-to-cart {
+            background-color: #e05297;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-to-cart:hover {
+            background-color: #c04482;
+        }
+        .cart-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background-color: #5a3827;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .cart-btn:hover {
+            background-color: #3e261b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo de Productos</h1>
+        <div class="product-list" id="product-list">
+            <div class="product">
+                <img src="https://via.placeholder.com/250x300" alt="Jabón de arroz">
+                <h3>Jabón de arroz</h3>
+                <p>Dermatologist-recommended products</p>
+                <button class="add-to-cart" onclick="addToCart('Jabón de arroz')">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250x300" alt="Jabón de azufre">
+                <h3>Jabón de azufre</h3>
+                <p>Items to nourish your skin and nurture your senses</p>
+                <button class="add-to-cart" onclick="addToCart('Jabón de azufre')">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250x300" alt="Jabón de cacao">
+                <h3>Jabón de cacao</h3>
+                <p>Over 100 brands offering a wide variety of options</p>
+                <button class="add-to-cart" onclick="addToCart('Jabón de cacao')">Añadir al carrito</button>
+            </div>
+        </div>
+        <a href="#" id="cart-btn" class="cart-btn" style="display:none;" onclick="redirectToWhatsApp()">Finalizar compra</a>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product) {
+            cart.push(product);
+            document.getElementById('cart-btn').style.display = 'block';
+            alert(product + " añadido al carrito");
+        }
+
+        function redirectToWhatsApp() {
+            if (cart.length === 0) {
+                alert("El carrito está vacío");
+                return;
+            }
+            let message = "Hola, quiero comprar: " + cart.join(", ");
+            let whatsappUrl = "https://wa.me/0983913566?text=" + encodeURIComponent(message);
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
+</body>
+</html>
