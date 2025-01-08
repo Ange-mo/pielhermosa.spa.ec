@@ -4,137 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piel Hermosa Spa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rozha+One&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Georgia', serif; 
+            background-color: #fff8f0; 
+            color: #333;
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .top-half {
-            height: 50vh;
-            background-image: url('fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            color: #fff;
-        }
-        .menu {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .menu .logo {
-            font-family: 'Rozha One', serif;
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .menu .logo img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-        .menu .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .menu .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-        .menu .dropdown-content a {
-            color: black;
-            padding: 10px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .menu .dropdown-content a:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-        .menu .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .top-half h1 {
-            font-family: 'Rozha One', serif;
-            font-size: 48px;
-            text-align: center;
-            margin: 0;
+            padding: 0;
         }
 
-        .bottom-half {
-            padding: 40px 20px;
+        header {
+            background-color: #f8d9e0; 
+            padding: 20px;
             text-align: center;
         }
 
-        .bottom-half h2 {
-            font-size: 28px;
+        header .logo-space {
+            height: 100px;
+            background-color: #e2f1f1; 
             margin-bottom: 20px;
         }
 
-        .bottom-half p {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.6;
+        nav {
+            background-color: #f0a1b2; 
+            padding: 10px;
+            text-align: center;
         }
 
-        /* Media queries para tablets y móviles */
-        @media (max-width: 1023px) {
-            .menu {
-                flex-direction: column;
-                text-align: center;
-            }
-            .menu .dropdown {
-                margin-top: 10px;
-            }
-            .top-half h1 {
-                font-size: 32px;
-                padding: 20px;
-            }
-            .bottom-half h2 {
-                font-size: 24px;
-            }
-            .bottom-half p {
-                font-size: 16px;
-            }
+        nav a {
+            margin: 0 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            color: #f0a1b2;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .content a {
+            color: #7ad1b3; 
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #f8d9e0; 
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="top-half">
-        <div class="menu">
-            <div class="logo">
-                <img src="ruta/a/la/imagen_logo.jpg" alt="Logo"> <!-- Reemplaza con la ruta de la imagen del logo -->
-                Piel Hermosa
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Menú</button>
-                <div class="dropdown-content">
-                    <a href="servicios.html">Servicios</a>
-                    <a href="carrito.html">Productos</a>
-                </div>
-            </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="logo.png" style="width: 200px; height: auto;">
         </div>
-        <h1>Realza tu belleza</h1>
-    </div>
-    <div class="bottom-half">
-        <h2>Sobre Nosotros</h2>
-        <p>Bienvenido a Spa Piel Hermosa, tu destino de confianza para el cuidado y rejuvenecimiento de la piel. Nos dedicamos a brindarte experiencias únicas y personalizadas que resalten tu belleza natural. ¡Descubre tu mejor versión con nosotros!</p>
-    </div>   
+        <h1>Piel Hermosa Spa</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Inicio -->
+    <section id="inicio">
+        <div class="content">
+            <h2>Bienvenidos a Piel Hermosa Spa</h2>
+            <p>Te ofrecemos productos y servicios exclusivos para el cuidado de tu piel. Descubre nuestro catálogo de artículos estéticos y de spa de calidad.</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+        <div class="content">
+            <h2>Catálogo de Productos</h2>
+            <p>Explora nuestra selección de productos de alta calidad para tu bienestar y belleza.</p>
+            <p><a href="productos.html">Ver productos</a></p>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="content">
+            <h2>Servicios</h2>
+            <p>Ofrecemos servicios profesionales como tratamientos faciales, masajes y más. Ven y consiente tu piel.</p>
+            <p><a href="servicios.html">Ver más servicios</a></p>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="content">
+            <h2>Datos de Contacto</h2>
+            <p>Email: <a href="mailto:pielhermosaspa@gmail.com">pielhermosaspa@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/593983913566" target="_blank">(+593) 098-391-3566</a></p>
+            <p>Teléfono: <a href="tel:+59345080720">(+593) 4-508-0720</a></p>
+            <p>Dirección: <a href="https://www.google.com/maps/search/?api=1&query=Sauces+V+mz240+villa14" target="_blank">Sauces V mz240 villa14</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Piel Hermosa Spa | Todos los derechos reservados.</p>
+        <p><a href="mailto:pielhermosaspa@gmail.com">Email: pielhermosaspa@gmail.com</a></p>
+        <p><a href="https://wa.me/593983913566" target="_blank">WhatsApp: (+593) 098-391-3566</a></p>
+    </footer>
+
 </body>
 </html>
