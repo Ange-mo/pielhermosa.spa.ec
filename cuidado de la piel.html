@@ -3,61 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Cuidado de la Piel</title>
+    <title>Cuidado de la Piel | Piel Hermosa Spa</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f8efe6; color: #5a3827; text-align: center; padding: 20px; }
-        h1 { margin-bottom: 30px; }
-        .product-list { display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .product { width: 250px; margin: 20px; text-align: center; background-color: #fff; padding: 20px; border-radius: 10px; }
-        .product img { width: 100%; height: auto; border-radius: 10px; }
-        .product h3 { margin: 10px 0; }
-        .add-to-cart { background-color: #e05297; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        .add-to-cart:hover { background-color: #c04482; }
-        .cart-btn { display: block; margin: 30px auto; padding: 10px 20px; background-color: #5a3827; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .cart-btn:hover { background-color: #3e261b; }
+        /* Estilos básicos similares a la página de servicios */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f8f4e4;
+            color: #5a3827;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #f0a1b2;
+        }
+        .service-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .service img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .service h3 {
+            color: #e05297;
+            margin: 15px 0 5px;
+        }
+        .service p {
+            font-size: 14px;
+            color: #5a3827;
+        }
+        .more-info {
+            background-color: #e05297;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .more-info:hover {
+            background-color: #c04482;
+        }
+        .cart {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart h2 {
+            color: #e05297;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            padding: 5px 0;
+        }
+        .cart-total {
+            font-weight: bold;
+            color: #e05297;
+        }
+        .checkout-btn {
+            background-color: #e05297;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .checkout-btn:hover {
+            background-color: #c04482;
+        }
     </style>
 </head>
 <body>
-    <h1>Catálogo Cuidado de la Piel</h1>
-    <div class="product-list" id="product-list">
-        <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Limpieza Facial">
-            <h3>Limpieza Facial</h3>
-            <p>Incluye lavado y estilo.</p>
-            <button class="add-to-cart" onclick="addToCart('Limpieza Facial')">Añadir al carrito</button>
+    <div class="container">
+        <h1>Servicios de Cuidado de la Piel</h1>
+        <div class="service-list">
+            <!-- Servicio 1 Cuidado de la Piel -->
+            <div class="service" id="service1">
+                <img src="https://via.placeholder.com/250x200" alt="Tratamiento Facial">
+                <h3>Tratamiento Facial</h3>
+                <p>Recibe un tratamiento especializado para cuidar tu piel y mantenerla saludable.</p>
+                <button class="more-info" onclick="addToCart('Tratamiento Facial', 50)">Añadir al carrito</button>
+            </div>
+
+            <!-- Servicio 2 Cuidado de la Piel -->
+            <div class="service" id="service2">
+                <img src="https://via.placeholder.com/250x200" alt="Limpieza Profunda">
+                <h3>Limpieza Profunda</h3>
+                <p>Elimina impurezas y refresca tu rostro con una limpieza profunda.</p>
+                <button class="more-info" onclick="addToCart('Limpieza Profunda', 40)">Añadir al carrito</button>
+            </div>
         </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Mascarilla Rejuvenecedora">
-            <h3>Mascarilla Rejuvenecedora</h3>
-            <p>Variedad de colores profesionales.</p>
-            <button class="add-to-cart" onclick="addToCart('Mascarilla Rejuvenecedora')">Añadir al carrito</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/250" alt="Tratamiento Anti-Edad">
-            <h3>Tratamiento Anti-Edad</h3>
-            <p>Fortalece y nutre el cabello.</p>
-            <button class="add-to-cart" onclick="addToCart('Tratamiento Anti-Edad')">Añadir al carrito</button>
+
+        <div class="cart">
+            <h2>Carrito de Servicios</h2>
+            <ul id="cart-items" class="cart-items"></ul>
+            <p class="cart-total">Total: $<span id="total-price">0</span></p>
+            <button class="checkout-btn" id="checkout-btn" onclick="checkout()">Finalizar y Reservar</button>
         </div>
     </div>
-    <a href="#" id="cart-btn" class="cart-btn" style="display:none;" onclick="redirectToWhatsApp()">Finalizar compra</a>
 
     <script>
         let cart = [];
+        let totalPrice = 0;
 
-        function addToCart(product) {
-            cart.push(product);
-            document.getElementById('cart-btn').style.display = 'block';
-            alert(product + " añadido al carrito");
+        function addToCart(service, price) {
+            cart.push({ service, price });
+            totalPrice += price;
+            updateCart();
         }
 
-        function redirectToWhatsApp() {
-            if (cart.length === 0) {
-                alert("El carrito está vacío");
-                return;
-            }
-            let message = "Hola, quiero comprar: " + cart.join(", ");
-            let whatsappUrl = "https://wa.me/0983913566?text=" + encodeURIComponent(message);
-            window.open(whatsappUrl, "_blank");
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            cartItems.innerHTML = '';  // Clear previous items
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.service} - $${item.price}`;
+                cartItems.appendChild(li);
+            });
+
+            totalPriceElement.textContent = totalPrice;
+        }
+
+        function checkout() {
+            let message = 'Reserva de Servicios:\n\n';
+            cart.forEach(item => {
+                message += `${item.service} - $${item.price}\n`;
+            });
+            message += `\nTotal: $${totalPrice}`;
+            const whatsappURL = `https://wa.me/5930983913566?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
         }
     </script>
 </body>
