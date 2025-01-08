@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +6,7 @@
     <title>Catálogo de Productos</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             background-color: #f8f4e4;
             color: #5a3827;
             margin: 0;
@@ -74,51 +73,116 @@
         .cart-btn:hover {
             background-color: #3e261b;
         }
+
+        /* Estilos del carrito */
+        .cart {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart h2 {
+            color: #e05297;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            padding: 5px 0;
+        }
+        .cart-total {
+            font-weight: bold;
+            color: #e05297;
+        }
+        .checkout-btn {
+            background-color: #e05297;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .checkout-btn:hover {
+            background-color: #c04482;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Catálogo de Productos</h1>
         <div class="product-list" id="product-list">
-            <div class="product">
+            <!-- Producto 1 -->
+            <div class="product" id="product1">
                 <img src="https://via.placeholder.com/250x300" alt="Jabón de arroz">
                 <h3>Jabón de arroz</h3>
                 <p>Dermatologist-recommended products</p>
-                <button class="add-to-cart" onclick="addToCart('Jabón de arroz')">Añadir al carrito</button>
+                <button class="add-to-cart" onclick="addToCart('Jabón de arroz', 10)">Añadir al carrito</button>
             </div>
-            <div class="product">
+
+            <!-- Producto 2 -->
+            <div class="product" id="product2">
                 <img src="https://via.placeholder.com/250x300" alt="Jabón de azufre">
                 <h3>Jabón de azufre</h3>
                 <p>Items to nourish your skin and nurture your senses</p>
-                <button class="add-to-cart" onclick="addToCart('Jabón de azufre')">Añadir al carrito</button>
+                <button class="add-to-cart" onclick="addToCart('Jabón de azufre', 12)">Añadir al carrito</button>
             </div>
-            <div class="product">
+
+            <!-- Producto 3 -->
+            <div class="product" id="product3">
                 <img src="https://via.placeholder.com/250x300" alt="Jabón de cacao">
                 <h3>Jabón de cacao</h3>
                 <p>Over 100 brands offering a wide variety of options</p>
-                <button class="add-to-cart" onclick="addToCart('Jabón de cacao')">Añadir al carrito</button>
+                <button class="add-to-cart" onclick="addToCart('Jabón de cacao', 15)">Añadir al carrito</button>
             </div>
         </div>
-        <a href="#" id="cart-btn" class="cart-btn" style="display:none;" onclick="redirectToWhatsApp()">Finalizar compra</a>
+
+        <!-- Carrito de compras -->
+        <div class="cart">
+            <h2>Carrito de Compras</h2>
+            <ul id="cart-items" class="cart-items"></ul>
+            <p class="cart-total">Total: $<span id="total-price">0</span></p>
+            <button class="checkout-btn" id="checkout-btn" onclick="checkout()">Finalizar y Comprar</button>
+        </div>
     </div>
 
     <script>
         let cart = [];
+        let totalPrice = 0;
 
-        function addToCart(product) {
-            cart.push(product);
-            document.getElementById('cart-btn').style.display = 'block';
-            alert(product + " añadido al carrito");
+        // Función para añadir productos al carrito
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            totalPrice += price;
+            updateCart();
         }
 
-        function redirectToWhatsApp() {
-            if (cart.length === 0) {
-                alert("El carrito está vacío");
-                return;
-            }
-            let message = "Hola, quiero comprar: " + cart.join(", ");
-            let whatsappUrl = "https://wa.me/0983913566?text=" + encodeURIComponent(message);
-            window.open(whatsappUrl, "_blank");
+        // Función para actualizar el carrito
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            cartItems.innerHTML = '';  // Limpiar los elementos anteriores del carrito
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - $${item.price}`;
+                cartItems.appendChild(li);
+            });
+
+            totalPriceElement.textContent = totalPrice;
+        }
+
+        // Función para finalizar la compra y redirigir a WhatsApp
+        function checkout() {
+            let message = 'Pedido de Productos:\n\n';
+            cart.forEach(item => {
+                message += `${item.product} - $${item.price}\n`;
+            });
+            message += `\nTotal: $${totalPrice}`;
+            const whatsappURL = `https://wa.me/5930983913566?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
         }
     </script>
 </body>
